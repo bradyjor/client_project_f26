@@ -190,6 +190,7 @@ https://design-system.lib.umich.edu/visual-elements/colors/, https://developer.m
     color: #00274C;
     font-size: 2rem;
     line-height: 1;
+    padding-bottom: 2rem;
     margin-top: 0;
 }
 
@@ -415,7 +416,8 @@ footer address {
 .prep-intro h2 {
     color: #00274C;
     font-size: 1.75rem;
-    line-height: 1.2;
+    line-height: 1;
+    padding-bottom: 1rem;
 }
 
 .prep-intro img {
