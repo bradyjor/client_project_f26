@@ -1,0 +1,954 @@
+/* Base styling and responsibe image rules. */
+                    /* Reference: MDN, Responsive Web Design
+                    https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
+                    Used as a reference for responsive image sizing. */
+                    /* https://brand.umich.edu/colors has been used throughout the making of this CSS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40import?utm_source=chatgpt.com */
+
+*{
+    box-sizing: border-box;
+}
+
+/* Font, text color, default spacing */
+/* Reference: https://design-system.lib.umich.edu/visual-elements/typography/ */
+
+/* I looked at the console for this page and found that the font UM websites use is Montserrat, and I look up how to make that work in my CSS. I saw in the consol that "Sans Serif" was the secondary font.
+https://brand.umich.edu/design-resources/typography/ */
+
+body {
+    margin: 0;
+    font-family: sans-serif; 
+    font-weight: 400;
+    line-height: 1.5;
+    color: #222222;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+/* Responsive images throughout */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header background, maize border, logo sizing */
+/* Reference: https://design-system.lib.umich.edu/reusable-designs/website-header/ */
+
+header {
+    background-color: #FFFFFF;
+    color: #00274C;
+    padding: 1rem;
+    border-bottom: 0.35rem solid #FFCB05;
+}
+
+header > img {
+    width: 100%;
+    max-width: 15rem;
+}
+
+/* Navigation layout and grid columns */
+
+/* Reference: https://design-system.lib.umich.edu/reusable-designs/link/ */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+/* Nav button appearance */
+
+nav a {
+    display: block;
+    padding: 1rem;
+    background-color: #00274C;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Skip link with the hidey aspect */
+/* Reference: WebAIM, Skip Navigation Links
+   https://webaim.org/techniques/skipnav/
+   used for the keyboard-accessible skip link, https://codepen.io/team/umlibrary-designsystem/pen/gOogXeG, used for skip-link code inspiration. */
+
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* skip link when it is recieving keyboard focus */
+
+.skip-link:focus {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    background-color: #FFCB05;
+    color: #00274C;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+/* Current page yellow highlighting for current page */
+/* Active navigation styling- UM Brand Guidlines - reference: MDN, aria-current https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current */
+
+nav a[aria-current="page"] {
+    background-color: #FFCB05;
+    color: #00274C;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Homepage */
+/* Grid layout (Codex used for help on this part) https://developer.mozilla.org/en-US/docs/Web/CSS/border-top,
+https://design-system.lib.umich.edu/visual-elements/colors/, https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Grids, https://codepen.io/team/umlibrary-designsystem/pen/dyjVeMQ */
+
+/* Guidance for every stage */
+
+.stage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.stage-grid > h2,
+.stage-grid > p {
+    grid-column: 1 / -1;
+}
+
+/* Guidance for stage cards and link colors */
+/* Card styling references: https://developer.mozilla.org/en-US/docs/Web/CSS/border-top
+   https://brand.umich.edu/ */
+
+.stage-grid article {
+    background-color: #e9f0f4;
+    padding: 1rem;
+    border-top: 3px solid #FFCB05;
+    border-radius: 1rem;
+}
+
+.stage-grid article a {
+    color: #00274C;
+}
+
+/* Featured programs grid layout */
+/* CSS Grid reference:
+   https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout, https://codepen.io/team/umlibrary-designsystem/pen/dyjVeMQ */
+
+.featured-programs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.featured-programs > h2,
+.featured-programs > p {
+    grid-column: 1 / -1;
+}
+
+/* Featured program cards */
+
+.featured-programs article {
+    background-color: #e9f0f4;
+    padding: 1rem;
+    border-left: 4px solid #FFCB05;
+    border-radius: 1rem;
+}
+
+.featured-programs article a {
+    color: #00274C;
+}
+
+/* Homepage introduction and text */
+
+.homepage-intro {
+    background-color: #e9f0f4;
+    border-bottom: 0.4rem solid #FFCB05;
+    padding: 1.5rem;
+}
+
+.homepage-intro h2 {
+    color: #00274C;
+    font-size: 2rem;
+    line-height: 1.;
+    margin-top: 0;
+}
+
+.homepage-intro p {
+    line-height: 1.5;
+}
+
+/* Youtube embedded video: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio */
+
+.homepage-intro iframe {
+    display: block;
+    height: auto;
+    aspect-ratio: 16 / 9; /*standard for youtube videos, looked this up */
+    width: 100%;
+    border: 0;
+    margin-top: 1rem;
+}
+
+/* Why use this resource */
+
+.why-resource h2,
+.why-resource > p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* benefits list, emphasized text */
+
+.benefits-list {
+    list-style: none;
+    margin: 1rem 1rem;
+    padding: 0;
+}
+
+.benefits-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #D6DCE3
+}
+
+.benefits-list strong {
+    color: #00274C;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* footer colors, padding, border */
+/* Reference: https://design-system.lib.umich.edu/reusable-designs/website-footer/ */
+
+footer {
+    background-color: #00274C;
+    color: white;
+    padding: 1.5rem;
+    border-top: 4px solid #FFCB05;
+    margin-top: 2rem;
+}
+
+/* footer link colors */
+
+footer a {
+    color: #FFCB05;
+}
+
+/* footer paragraphs and addresses */
+
+footer p,
+footer address {
+    margin: 0.75rem 0;
+}
+
+/* Preparing */ 
+/* start your experience- Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::marker, https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout, https://codepen.io/team/umlibrary-designsystem/pen/dyjVeMQ */
+/* main grid and featured article */
+
+#preparing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* preparing heading and intro */
+
+#preparing > h2,
+#preparing > p,
+#preparing > article:first-of-type {
+    grid-column: 1 / -1;
+}
+
+#preparing > article:first-of-type {
+    background-color: #00274C;
+    color: white;
+    padding: 1.5rem;
+    border-top: 5px solid #FFCB05;
+    border-radius: 0.5rem;
+}
+
+/* Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/max-width */
+
+#preparing > h2 {
+    color: #00274C;
+    border-left: 0.35rem solid #FFCB05;
+    padding-left: 1rem;
+    line-height: 2rem;
+}
+
+#preparing > p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 0;
+}
+
+/* Preparation goals- card, heading, list */
+
+.preparation-goals {
+    background-color: #FFF8E1;
+    padding: 1.25rem;
+    border-top: 4px solid #FFCB05;
+    border-radius: 0.5rem;
+}
+
+.preparation-goals h3 {
+    color: #00274C;
+    margin-top: 0;
+}
+
+.preparation-goals li {
+    margin-bottom: 0.75rem;
+}
+
+/* reflection questions - card and list */
+
+.reflection-questions {
+    background-color: #F1F4F7;
+    border-left: 0.35rem solid #00274C;
+    padding: 1.25rem;   
+}
+
+.reflection-questions h3 {
+    color: #00274C;
+    margin-top: 0;
+}
+
+.reflection-questions li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #C8D2DC;
+}
+
+/* Preparation resources - layout list cards */
+
+.preparation-process {
+    background-color: #FFFFFF;
+    padding: 1.25rem;
+    border: 2px solid #D6DCE3;
+    border-radius: 0.5rem;
+}
+
+.preparation-process h3 {
+    color: #00274C;
+    margin-top: 0;
+}
+
+.preparation-process ol {
+    padding-left: 1.5rem;
+}
+
+.preparation-process li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #D6DCE3;
+}
+
+.preparation-process li::marker {
+    color: #00274C;
+    font-weight: bold;
+}
+
+.preparation-resources {
+    padding: 1rem;
+}
+
+.preparation-resources h3 {
+    color: #00274C;
+    margin-top: 0;
+}
+
+.preparation-resources ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.preparation-resources li {
+    background-color: #F4F6F8;
+    border-left: 4px solid #FFCB05;
+    padding: 1rem;
+    line-height: 1.6;
+}
+
+/* Preparation resources links and keyboard focus */
+/* Reference: https://design-system.lib.umich.edu/reusable-designs/link/ */
+
+.preparation-resources a {
+    color: #00274C;
+    font-weight: bold;
+    text-underline-offset: 0.2rem;
+}
+
+/* Reference: MDN, CSS pseudo-classes and keyboard focus. https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes */
+
+.preparation-resources a:focus-visible {
+    outline: 3px solid #00274C;
+    outline-offset: 3px;
+}
+
+/* preparing introduction: card, heading, photo */
+/* Reference: https://codepen.io/team/umlibrary-designsystem/pen/XJWyjKQ */ 
+
+.prep-intro {
+    background-color: #F4F6F8;
+    padding: 1.5rem;
+}
+
+.prep-intro h2 {
+    color: #00274C;
+    font-size: 1.75rem;
+    line-height: 1.2;
+}
+
+.prep-intro img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Preparation context: heading and photo styling */
+
+.prep-context {
+    padding: 1.5rem 1rem;
+}
+
+.prep-context h2 {
+    color: #00274C;
+    margin-top: 0;
+}
+
+.preparation-goals img {
+    border-radius: 0.5rem;
+}
+
+/* During/Starting*/
+/* heading and intro */
+
+#starting {
+    padding: 1rem;
+}
+
+#starting > h2 {
+    color: #00274C;
+    border-left: 0.35rem solid #FFCB05;
+    padding-left: 1rem;
+}
+
+#starting > p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Partner Communications toolkit */
+/* steps and numbering */
+
+.outreach-guide {
+    background-color: #f4f6f8;
+    border-top: 0.3rem solid #FFCB05;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin: 1rem 0;
+}
+
+.outreach-guide h3 {
+    color: #00274C;
+}
+
+.outreach-guide ol {
+    list-style-type: decimal
+    padding-left: 1.5rem;
+}
+
+.outreach-guide li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #d6dce3;
+    line-height: 1.6;
+}
+
+.outreach-guide li::marker {
+    color: #00274C;
+    font-weight: bold;
+}
+
+/*meeting guide- link and photo */
+
+.meeting-guide ul {
+    padding-left: 1.5rem;
+}
+
+.meeting-guide li {
+    line-height: 1.6;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #d6dce3;
+}
+
+.meeting-guide img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+/* formalizing agreements cards and links*/
+
+.agreement-guide {
+    background-color: #fff9e8; 
+    border-left: 0.35rem solid #FFCB05;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.agreement-guide h3 {
+    color: #00274C;
+}
+
+.agreement-guide p {
+    line-height: 1.6;
+}
+
+.agreement-guide a {
+    color: #00274C;
+    font-weight: bold;
+}
+
+/* Starting Experience resource directory, lists, links */
+
+.starting-resources {
+    background-color: #eef3f8;
+    border-left: 0.35rem solid #00274C;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.starting-resources h3 {
+    color: #00274C;
+}
+
+/* Reference: MDN, responsive CSS Grid layout. https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout */
+
+.starting-resources ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Reference: https://design-system.lib.umich.edu/reusable-designs/link/ */
+
+.starting-resources li {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #ccd6e0;
+    line-height: 1.6;
+}
+
+.starting-resources li:last-child {
+    border-bottom: none;
+}
+
+.starting-resources a {
+    color: #00274C;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
+
+#during {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1rem;
+    background-color: #00274C;
+    color: #ffffff;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+}
+
+#during > h2,
+#during > p {
+    grid-column: 1/-1;
+}
+
+#during > h2 {
+    color: #FFCB05;
+}
+
+#during > img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+#during > article {
+    background-color: #ffffff;
+    color: #00274C;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+/* introduction, background, heading - phase 3 */
+
+#phase3 {
+    background-color: #f4f6f8;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+}
+
+#phase3 > h2 {
+    color: #00274C;
+    border-left: 0.35rem solid #FFCB05;
+    padding-left: 1rem;
+}
+
+#phase3 > p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Phase 3: responsive grid, articles, images - reference: MDN, :first-of-type selector. https://developer.mozilla.org/en-US/docs/Web/CSS/:first-of-type */
+
+#phase3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1.25rem;
+}
+
+#phase3 > h2,
+#phase3 > p {
+    grid-column: 1 / -1;
+}
+
+/* Reference: MDN, Grid minmax() for responsive columns. https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/minmax */
+
+#phase3 > article {
+    background-color: #ffffff; 
+    border-top: 0.3rem solid #00274C; 
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+#phase3 > article h3 {
+    color: #00274C;
+}
+
+#phase3 > article:first-of-type {
+    grid-column: 1 / -1;
+    border-top-color: #FFCB05;
+}
+
+#phase3 > img {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+/* AEIOU spice up - grid list and highlighted words */
+
+#phase3 > article:first-of-type ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Reference: MDN, CSS relative length units, including ch. https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length, https://www.w3.org/wiki/CSS/Selectors/pseudo-classes/%3Anth-of-type */
+
+#phase3 > article:first-of-type li {
+    background-color: #edf3f8;
+    border-left: 0.3rem solid #FFCB05;
+    border-radius: 0.35rem;
+    padding: 1rem;
+    line-height: 1.6;
+}
+
+#phase3 > article:first-of-type li strong {
+    color: #00274C;
+    font-size: 1.2rem;
+}
+
+/* Fieldwork article: heading and paragraph readability */
+
+#phase3 > article:first-of-type h4 {
+    color: #00274C;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #FFCB05;
+}
+
+/* Reference: https://design-system.lib.umich.edu/visual-elements/typography/ */
+
+#phase3 > article:first-of-type p {
+    max-width: 65ch;
+    line-height: 1.7;
+}
+
+/* Phase 3: sponsor updates and feedback cards */
+
+#phase3 > article:nth-of-type(2),
+#phase3 > article:nth-of-type(3) {
+    padding: 1.5rem;
+}
+
+#phase3 > article:nth-of-type(3) {
+    border-top-color: #FFCB05;
+}
+
+#phase3 > article:nth-of-type(2) h3,
+#phase3 > article:nth-of-type(3) h3 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+#phase3 > article:nth-of-type(2) p,
+#phase3 > article:nth-of-type(3) p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* phase 4: completing and reflecting- background and headings */
+
+#phase4 {
+    background-color: #f8f6f0;
+    padding: 1.5rem 1rem;
+}
+
+#phase4 > h2 {
+    color: #00274C;
+    border-left: 0.35rem solid #FFCB05;
+    padding-left: 1rem;
+    line-height: 1.3;
+}
+
+#phase4 > h3 {
+    color: #00274C;
+    margin-top: 1.5rem;
+}
+
+/* Reference: https://design-system.lib.umich.edu/visual-elements/typography/ */
+
+#phase4 > p {
+    line-height: 1.7;
+    max-width: 65ch;
+}
+
+/* Project completiion: cards, text, link */
+
+#phase4 > article {
+    background-color: #ffffff;
+    border-left: 0.35rem solid #00274C;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+#phase4 > article:nth-of-type(2) {
+    border-left-color: #FFCB05;
+}
+
+#phase4 > article h3 {
+    color: #00274C;
+    margin-top: 0;
+}
+
+#phase4 > article p {
+    line-height: 1.7;
+}
+
+/* Reference: MDN, CSS Grid layout and responsive tracks. https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout */
+
+#phase4 > article a {
+    color: #00274C;
+    font-weight: bold;
+    text-underline-offset: 0.2rem;
+}
+
+/* Phase 4: featured photo */
+
+#phase4 > img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+/* Phase 5: Career momentum: grid, heading, introduction https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout*/
+
+#phase5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1.25rem;
+    background-color: #edf3f8;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+}
+
+#phase5 > h2 {
+    background-color: #00274C;
+    color: #FFCB05;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    line-height: 1.3;
+}
+
+/* Reference: https://design-system.lib.umich.edu/visual-elements/typography/ */
+
+#phase5 > p {
+    max-width: 65ch;
+    line-height: 1.7;
+    margin: 1.25rem 0;
+}
+
+/* Phase 5: Career development articles and text */
+
+#phase5 > article {
+    background-color: #ffffff;
+    border-top: 0.3rem solid #00274C;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+}
+
+#phase5 > article h3 {
+    color: #00274C;
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
+#phase5 > article p {
+    line-height: 1.7;
+}
+
+#phase5 > article a {
+    color: #00274C;
+    font-weight: bold;
+    text-underline-offset: 0.2rem;
+}
+
+#phase5 > article:nth-of-type(2) {
+    border-top-color: #FFCB05;
+}
+
+/* STAR method: responsive portfolio guide- list and cards */
+
+#phase5 > article:nth-of-type(2) ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 0.75rem;
+    list-style: none; 
+    padding-left: 0;
+}
+
+#phase5 > article:nth-of-type(2) li {
+    background-color: #edf3f8;
+    border-left: 0.3rem solid #FFCB05;
+    border-radius: 0.35rem;
+    padding: 1.25rem;
+    line-height: 1.6;
+}
+
+/* Reference: MDN, justify-self alignment in CSS Grid. https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/justify-self */
+
+#phase5 > article:nth-of-type(2) li strong {
+    color: #00274C;
+    font-weight: bold;
+}
+
+/* Phase 5 Grid item placement */
+
+#phase5 > h2,
+#phase5 > p,
+#phase5 > img {
+    grid-column: 1 / -1;
+}
+
+#phase5 > article:nth-of-type(3) {
+    grid-column: 1 / -1;
+}
+
+/* Phase 5 career fair photo  and alignment */
+
+#phase5 > img {
+    width: 100%;
+    max-width: 50rem;
+    height: auto;
+    border-radius: 0.5rem;
+    justify-self: center;
+}
+
+/* Homepage edits: about ELO and stay connected */
+
+.about-elo {
+    background-color: #f4f6f8;
+    border-left: 0.35rem solid #00274C;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem 1rem;
+}
+
+/* connect with ELO: Navy card, heading, links */
+
+.about-elo h2 {
+    color: #00274C;
+    margin-top: 0;
+}
+
+/* Reference: https://design-system.lib.umich.edu/visual-elements/typography/ */
+
+.about-elo p {
+    line-height: 1.7;
+    max-width: 65ch;
+}
+
+.elo-connect {
+    background-color: #00274C;
+    color: #ffffff;
+    border-top: 0.35rem solid #FFCB05;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem 1rem;
+}
+
+.elo-connect h2 {
+    color: #FFCB05;
+    margin-top: 0;
+}
+
+.elo-connect p {
+    line-height: 1.7;
+}
+
+.elo-connect a {
+    color: #FFCB05;
+    font-weight: bold;
+    text-underline-offset: 0.2rem;
+}
+
+/* Connect with ELO keyboard focus styling */
+
+.elo-connect a:focus-visible { 
+    outline: 3px solid #FFCB05;
+    outline-offset: 3px;
+}
