@@ -27,7 +27,8 @@ body {
 
 h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    line-height: 3;
+    font-weight: 700;
 }
 
 /* Responsive images throughout */
@@ -188,7 +189,7 @@ https://design-system.lib.umich.edu/visual-elements/colors/, https://developer.m
 .homepage-intro h2 {
     color: #00274C;
     font-size: 2rem;
-    line-height: 1.;
+    line-height: 1;
     margin-top: 0;
 }
 
@@ -291,7 +292,7 @@ footer address {
     color: #00274C;
     border-left: 0.35rem solid #FFCB05;
     padding-left: 1rem;
-    line-height: 2rem;
+    line-height: 3rem;
 }
 
 #preparing > p {
@@ -473,7 +474,7 @@ footer address {
 }
 
 .outreach-guide ol {
-    list-style-type: decimal
+    list-style-type: decimal;
     padding-left: 1.5rem;
 }
 
