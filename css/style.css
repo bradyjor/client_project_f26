@@ -824,7 +824,7 @@ footer address {
 
 /* Reference: https://design-system.lib.umich.edu/visual-elements/typography/ */
 
-#phase4 > p {
+.phase4-intro-text > p {
     line-height: 1.7;
     max-width: 65ch;
 }
@@ -862,8 +862,10 @@ footer address {
 
 /* Phase 4: featured photo */
 
-#phase4 > img {
+.phase4-intro > img {
+    display: block;
     width: 100%;
+    max-width: 360px;
     height: auto;
     border-radius: 0.5rem;
     margin: 1.5rem 0;
@@ -878,9 +880,28 @@ footer address {
 
     #phase4 > h2,
     #phase4 > h3,
-    #phase4 > p,
-    #phase4 > img {
+    .phase4-intro {
         grid-column: 1 / -1;
+    }
+
+    .phase4-intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: 1.25rem;
+    }
+
+    .phase4-intro > img {
+        max-width: 600px;
+    }
+
+    .phase4-intro-text {
+        min-width: 0;
+    }
+
+    .phase4-intro-text > p:first-child,
+    .phase4-intro > img {
+        margin-top: 0;
     }
 
     #phase4 > article {
@@ -915,10 +936,10 @@ footer address {
 
 /* Reference: https://design-system.lib.umich.edu/visual-elements/typography/ */
 
-#phase5 > p {
+.phase5-intro > p {
     max-width: 65ch;
     line-height: 1.7;
-    margin: 1.25rem 0;
+    min-width: 0;
 }
 
 /* Phase 5: Career development articles and text */
@@ -979,8 +1000,7 @@ footer address {
 /* Phase 5 Grid item placement */
 
 #phase5 > h2,
-#phase5 > p,
-#phase5 > img {
+.phase5-intro {
     grid-column: 1 / -1;
 }
 
@@ -990,12 +1010,31 @@ footer address {
 
 /* Phase 5 career fair photo  and alignment */
 
-#phase5 > img {
+.phase5-intro > img {
+    display: block;
     width: 100%;
-    max-width: 50rem;
+    max-width: 360px;
     height: auto;
     border-radius: 0.5rem;
-    justify-self: center;
+    margin: 1.5rem 0;
+}
+
+@media (min-width: 600px) {
+    .phase5-intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: 1.25rem;
+    }
+
+    .phase5-intro > p,
+    .phase5-intro > img {
+        margin-top: 0;
+    }
+
+    .phase5-intro > img {
+        max-width: 600px;
+    }
 }
 
 /* Homepage edits: about ELO and stay connected */
