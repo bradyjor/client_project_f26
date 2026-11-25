@@ -49,7 +49,8 @@ document.addEventListener("keydown", function(event) {
 
 
 // cites
-// ChatGPT was used to assist in finding some sources. This code is my own/ taken from the sources listed. It is not AI generated.
+// ChatGPT and Claude were used to assist in finding several of these sources. This code is my own/ taken from the sources listed. It is not AI generated. //
+
 // https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html 
 // https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
 // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener 
